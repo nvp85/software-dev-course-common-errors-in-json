@@ -69,6 +69,35 @@ const invalidBookingJSON = `
 }
 `;
 
+// missing comma after the checkInDate field (line 50)
+// missing double quotes around the key "name" (line 54)
+// value in JSON can not be undefined. we should use null instead (line 60)
+// a valid JSON should not contain trailing commas (line 67)
+// corrected JSON:
+const validBookingJSON = `
+{
+  "hotelName": "Grand City Hotel",
+  "checkInDate": "2024-05-15",
+  "checkOutDate": "2024-05-20",
+  "guests": [
+    {
+      "name": "Alice Johnson",
+      "age": 30,
+      "email": "alice.johnson@example.com"
+    },
+    {
+      "name": "Bob Smith",
+      "age": null,
+      "email": "bob.smith@example"
+    }
+  ],
+  "roomDetails": {
+    "type": "Suite",
+    "pricePerNight": 200,
+    "amenities": ["WiFi", "Breakfast", "Parking"]
+  }
+}
+`;
 
 // ============================================
 // ✅ Requirements
@@ -91,11 +120,15 @@ const invalidBookingJSON = `
 💬 Reflect and answer the following:
 
 1️⃣ What tools or techniques did you use to identify the errors?
+my eyes
 
 2️⃣ How did you confirm that your corrected JSON file was valid?
+used the provided validator
 
 3️⃣ Which errors were the most difficult to spot? Why?
+any missing or extra parts because I'm innatentive 
 
 4️⃣ What strategies can help you avoid these kinds of errors in the future?
    (e.g., syntax highlighting, linters, writing JSON by example)
 */
+// linters are very helpful!
